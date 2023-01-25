@@ -28,17 +28,19 @@ class Appointment {
          WebElement radio1 = driver.findElement(By.xpath("//*[@id=\"radio_program_medicaid\"]"));
          radio1.click();
          driver.findElement(By.xpath("//*[@id=\"txt_visit_date\"]")).sendKeys("18012023");
-         driver.findElement(By.xpath("//*[@id=\"txt_comment\"]")).sendKeys("Test");
+         driver.findElement(By.xpath("//*[@id=\"txt_comment\"]")).sendKeys("Heart");
          Thread.sleep(4000);
          driver.findElement(By.xpath("//*[@id=\"btn-book-appointment\"]")).click();
          
-    //Add Validate
+    //Add Validate and Assert
          String result = driver.findElement(By.id("comment")).getText();
-         if(result.equalsIgnoreCase("Test"))
-        	 System.out.println("Pass");
-         else
-        	 System.out.println("Fail");
          
+//         if(result.equalsIgnoreCase("Test"))
+//        	 System.out.println("Pass");
+//         else
+//        	 System.out.println("Fail");
+         
+         assertEquals("Heart", result);
       
          
          Thread.sleep(4000);
